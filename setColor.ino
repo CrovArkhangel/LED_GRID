@@ -24,7 +24,9 @@ void processBuffer() {
   String rgbString1 = String(rgbString);
   if (strstr(serialBuffer, "clear-all-cells")) {
     // クリア操作を検知した場合
-    clearAllCells(); // すべてのLEDをオフにする処理を呼び出す
+    for (int i = 0; i < 720; i++) {
+      setLEDColor(i, 0, 0, 0); // すべてのLEDをオフにする
+    }
   } else if (rgbString1 && rgbString1.charAt(0) == '#' && rgbString1.length() == 7) {
     int r = strtol(rgbString1.substring(1,3).c_str(), NULL, 16);
     int g = strtol(rgbString1.substring(3,5).c_str(), NULL, 16);
@@ -38,10 +40,9 @@ void processBuffer() {
 }
 
 void clearAllCells() {
-  for (int i = 0; i < NUM_LED; i++) {
-    strip.setPixelColor(i, strip.Color(0, 0, 0)); // すべてのLEDをオフにする
+  for (int i = 0; i < 720; i++) {
+    setLEDColor(i, 0, 0, 0); // すべてのLEDをオフにする
   }
-  strip.show(); // LEDを更新
 }
 
 void setLEDColor(int index, int red, int green, int blue) {

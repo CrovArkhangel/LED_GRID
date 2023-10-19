@@ -39,18 +39,6 @@ io.on("connection", (socket) => {
     }
   });
 
-  /*
-  if (currentTimestamp - lastEditedCollection.get(data.userID) >= 10000) { // 追加: 2分（2 * 60,000 ミリ秒）
-    console.log("10秒経過: 全てのセルをリセット");
-    io.emit("reset-all-cells", {
-        index: 0,
-        color: "#ffffff",
-        userID: socket.id,
-    });
-    console.log("2分経過: 全てのセルをリセット");
-  }
-  */
-
   socket.on("reset-all-cells", (data) => {
     for (let i = 0; i < GRID_SIZE; i++) {
       gridData[i] = data.color;
