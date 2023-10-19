@@ -1,0 +1,40 @@
+#grid {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  max-width: 100vh; /* Ensure it doesn't get taller than the viewport height */
+  max-height: 100vh;
+  grid-template-columns: repeat(
+    30,
+    1fr
+  ); /*Change this to be the number of columns, example: repeat(10, 1fr); is used for 10 columns*/
+  grid-gap: 2px;
+  order: 1; /*Makes it so that it is the first item in the container*/
+}
+.container {
+  display: flex; /* Use flexbox to layout the child elements */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  height: 100vh; /* Take full viewport height */
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  cursor: pointer;
+  border: 1px solid #000000; /* Add an outline using a border */
+  box-sizing: border-box; /* This ensures the border is included in the cell's total width/height */
+  order: 2; /*Makes it so that it is the second item in the container*/
+}
+
+.a{
+  flex-flow: column;
+  margin-right: 5px;
+}
+
+.reset{
+  margin: 5px 5px 0 0;
+  font-size: 15px;
+  font-weight:bold;
+}
